@@ -20,9 +20,14 @@
 	<script>
 	$(document).ready(function(){
 		$('#calendar').multiDatesPicker({
-			addDisabledDates: ['02/06/2015', '03/06/2015'],
+			dateFormat: 'dd/mm/yy',
+			addDisabledDates: ['06/02/2015', '06/03/2015'],
 			minDate: 0,
-			numberOfMonths: [1,2],			
+			numberOfMonths: [1,2],
+			altField: "#value_calendar"	
+			/*onSelect: function(){
+				alert(this.value);
+			}*/
 		});
 
 		$("#values").bind('click', function(event){
@@ -47,7 +52,7 @@
 
 	<style>
 		div.box{
-		 font-size:15px;
+		 font-size:16px;
 		}
 	</style>
 </head>
@@ -55,43 +60,71 @@
 
 
 <div class="row">
-	<div class="col-sm-4"></div>
-	<div class="col-sm-4">
+	<div class="col-sm-3"></div>
+	<div class="col-sm-6">
 			<h3>Reservation</h3>
 			<br>
 			<form action="#">
-				<div class="form-group">
-				    <label for="">Room Type</label>
-				    <select name="" id="" class="form-control">
-				    	<option value="Matrimonial">Matrimonial</option>
-				    	<option value="King">King</option>
-				    	<option value="Single">Single</option>
-				    </select> 
-				 </div>
+				
 
 				<div class="form-group">
-				    <label for="">Select Dates</label>
-				    <input type="text" class="form-control" id="calendar">
-				    <br/>
+					<label for="nombres">Nombres</label>
+					<input type="text" name="nombres" class="form-control" placeholder="Nombres y Apellidos">
+				</div>
+
+				<div class="form-group">
+					<label for="nombres">Email</label>
+					<input type="text" name="email" class="form-control" placeholder="Email">
+				</div>
+
+				<div class="form-group">
+					<label for="nombres">Telefono</label>
+					<input type="text" name="telefono" class="form-control" placeholder="Telefono">
+				</div>
+
+				<div class="form-group">
+					<label for="nombres">Pais</label>
+					<input type="text" name="pais" class="form-control" placeholder="Pais">
+				</div>
+
+				<div class="form-group">
+				    <label for="">Tipo de Habitacion:</label>
+				    <select name="" id="" class="form-control">
+				    	<option value="Simple">Simple</option>
+				    	<option value="Doble">Doble</option>
+				    	<option value="Triple">Triple</option>
+				    	<option value="Matrimonial">Matrimonial</option>
+
+				    </select> 
+				</div>
+
+				<div class="form-group">    
+				    
+		    		<label for="">Seleccione Fechas:</label>
+		    		<div id="calendar" class="box"></div>
+					<input type="hidden" class="form-control" id="value_calendar">
+		    		<br/>
 				    <div class="row">
-				    	<div class="col-sm-6"><img src="css/images/enable.png" width="15px" height="15px" /> Enabled Days</div>
-				    	<div class="col-sm-6"><img src="css/images/ui-bg_diagonals-thick_18_b81900_40x40.png" width="15px" height="15px" /> Disable Days</div>
-				    </div>				    
+				    	<div class="col-sm-4"><img src="css/images/enable.png" width="15px" height="15px" /> Dias Disponibles.</div>
+				    	<div class="col-sm-4"><img src="css/images/icon_disabled_days.png" width="15px" height="15px" /> Ocupados</div>
+				    	<div class="col-sm-4"><img src="css/images/ui-bg_diagonals-thick_18_b81900_40x40.png" width="15px" height="15px" /> Seleccionados</div>
+				    </div>	
+		    
 				 </div>
 
 				 <div class="form-group">
-				    <label for="">Cant</label>
+				    <label for="">Numero de Habitaciones:</label>
 				    <input type="text" class="form-control">
 				 </div>
 
 				 <div class="form-group">
-				    <label for="">Comment</label>
-				    <textarea class="form-control"></textarea>
+				    <label for="">Comentarios:</label>
+				    <textarea class="form-control" rows="7"></textarea>
 				 </div>
 
 			</form>
 	</div>
-	<div class="col-sm-4"></div>
+	<div class="col-sm-3"></div>
 </div>
 
 
